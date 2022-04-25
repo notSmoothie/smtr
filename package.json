@@ -1,6 +1,6 @@
 {
   "name": "smtr",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "convert table or spreadsheet data into an image",
   "main": "./lib/index.js",
   "types": "index.d.ts",
