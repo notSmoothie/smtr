@@ -47,16 +47,16 @@ const TableRenderer = (options = {}) => {
   } = Object.assign(defaultOptions, options);
 
   const classColorMap = new Map();
-  classIdMap.set("WARR",`rgb(198,155,109)`);
-  classIdMap.set("PALA",`rgb(244,140,186)`);
-  classIdMap.set("HUNT",`rgb(170,211,114)`);
-  classIdMap.set("ROG",`rgb(255,244,104)`);
-  classIdMap.set("PRIEST",`rgb(255,255,255)`);
-  classIdMap.set("DK",`rgb(196,30,59)`);
-  classIdMap.set("SHAM",`rgb(0,112,221)`);
-  classIdMap.set("MAG",`rgb(63,199,235)`);
-  classIdMap.set("LOCK",`rgb(135,136,238)`);
-  classIdMap.set("DRUID",`rgb(255,124,10)`);
+  classColorMap.set("WARR",`rgb(198,155,109)`);
+  classColorMap.set("PALA",`rgb(244,140,186)`);
+  classColorMap.set("HUNT",`rgb(170,211,114)`);
+  classColorMap.set("ROG",`rgb(255,244,104)`);
+  classColorMap.set("PRIEST",`rgb(255,255,255)`);
+  classColorMap.set("DK",`rgb(196,30,59)`);
+  classColorMap.set("SHAM",`rgb(0,112,221)`);
+  classColorMap.set("MAG",`rgb(63,199,235)`);
+  classColorMap.set("LOCK",`rgb(135,136,238)`);
+  classColorMap.set("DRUID",`rgb(255,124,10)`);
 
   function getColorByClass(className){
     return classColorMap.get(className);
