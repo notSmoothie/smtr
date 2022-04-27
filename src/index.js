@@ -12,11 +12,13 @@ const defaultOptions = {
 	fontFamily: 'sans-serif',
 	paddingVertical: 0,
 	paddingHorizontal: 0,
+	fontColor: '#000000',
 	backgroundColor: '#ffffff',
+	fontSize: `16px`,
 };
 
 const TableRenderer = (options = {}) => {
-	const { cellWidth, cellHeight, offsetLeft, offsetTop, spacing, titleSpacing, fontFamily, fontColor, paddingHorizontal, paddingVertical, backgroundColor } = Object.assign(defaultOptions, options);
+	const { cellWidth, cellHeight, offsetLeft, offsetTop, spacing, titleSpacing, fontFamily, fontColor, paddingHorizontal, paddingVertical, backgroundColor, fontSize } = Object.assign(defaultOptions, options);
 
 	const getTableWidth = (columns) => {
 		return columns?.reduce((sum, col) => sum + (col === '|' ? 1 : col.width ?? cellWidth), 0) ?? cellWidth;
@@ -36,11 +38,7 @@ const TableRenderer = (options = {}) => {
 	};
 
 	const renderHorizontalLines = (ctx) => (dataSource, { x, y, width }) => {
-		if (!fontColor) {
-			ctx.strokeStyle = '#000000';
-		} else {
-			ctx.strokeStyle = `${fontColor}`;
-		}
+		ctx.strokeStyle = `${fontColor}`;
 		dataSource?.forEach((row, i) => {
 			if (row !== '-') return;
 			ctx.moveTo(paddingHorizontal, y[i]);
@@ -50,11 +48,7 @@ const TableRenderer = (options = {}) => {
 	};
 
 	const renderVerticalLines = (ctx) => (title, columns, { x, y, height }) => {
-		if (!fontColor) {
-			ctx.strokeStyle = '#000000';
-		} else {
-			ctx.strokeStyle = `${fontColor}`;
-		}
+		ctx.strokeStyle = `${fontColor}`;
 		const titleHeight = title ? cellHeight + titleSpacing : 0;
 		columns?.forEach((col, i) => {
 			if (col !== '|') return;
@@ -74,9 +68,9 @@ const TableRenderer = (options = {}) => {
 	};
 
 	const renderHeader = (ctx) => (columns, { x, y }) => {
-		ctx.font = `normal 16px ${fontFamily}`;
+		ctx.font = `normal ${fontSize} ${fontFamily}`;
 		if (!fontColor) {
-			ctx.fillStyle = '#333333';
+			ctx.fillStyle = '#ffffff';
 		} else {
 			ctx.fillStyle = `${fontColor}`;
 		}
