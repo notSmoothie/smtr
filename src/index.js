@@ -54,7 +54,7 @@ const TableRenderer = (options = {}) => {
   classColorMap.set("PRIEST",`rgb(255,255,255)`);
   classColorMap.set("DK",`rgb(196,30,59)`);
   classColorMap.set("SHAM",`rgb(0,112,221)`);
-  classColorMap.set("MAG",`rgb(63,199,235)`);
+  classColorMap.set("MAGE",`rgb(63,199,235)`);
   classColorMap.set("LOCK",`rgb(135,136,238)`);
   classColorMap.set("DRUID",`rgb(255,124,10)`);
 
@@ -172,6 +172,8 @@ const TableRenderer = (options = {}) => {
         if (!row[dataIndex]) return;
         if (dataIndex == 'class'){
           ctx.fillStyle = getColorByClass(row[dataIndex]);
+        } else {
+          ctx.fillStyle = fontColor;
         }
         const content = prefix + row[dataIndex] + suffix;
         ctx.textAlign = align;
